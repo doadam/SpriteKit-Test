@@ -14,6 +14,9 @@
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         
+        // Set the physics contact delegate as this class. (didBegin\EndContact is implemented)
+        self.physicsWorld.contactDelegate = self;
+        
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         
         SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
@@ -48,6 +51,12 @@
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+}
+
+
+// Collision detection
+- (void)didBeginContact:(SKPhysicsContact *)contact {
+    
 }
 
 @end
