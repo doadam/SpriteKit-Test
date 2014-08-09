@@ -29,6 +29,9 @@
         
         [self addChild:myLabel];
         
+        
+        self.signs = [NSMutableSet setWithCapacity:MAX_NUMBER_OF_SIGNS_ON_THE_SCREEN];
+        
         // Initialize counter here
         
         
@@ -70,12 +73,7 @@
     
     sign.position = signPoint;
     
-    if(sign.isRedSign) {
-        [self.redSigns addObject:sign];
-    }
-    else {
-        [self.greenSigns addObject:sign];
-    }
+    [self.signs addObject:sign];
     
     // Finally add it to the screen
     [self addChild:sign];
@@ -99,7 +97,7 @@
 
 -(void)validateNumberOfSigns {
     
-    NSUInteger numberOfSignsOnScreen = self.redSigns.count + self.greenSigns.count;
+    NSUInteger numberOfSignsOnScreen = self.signs.count;
     NSUInteger numberOfSignsNeededOnScreen = [self calculateNumberOfSignsNeededOnScreen];
     
     for(; numberOfSignsOnScreen < numberOfSignsNeededOnScreen; ++numberOfSignsOnScreen) {
@@ -112,9 +110,14 @@
 }
 
 -(void)cleanupRemovedSigns {
-    NSMutableSet * signsToRemove = [NSMutableSet setWithCapacity:self.redSigns.count];
     
-    for(SignTarget * sign in self.redSigns) {
+    if(!self.signs.count) {
+        return;
+    }
+    
+    NSMutableSet * signsToRemove = [NSMutableSet setWithCapacity:self.signs.count];
+    
+    for(SignTarget * sign in self.signs) {
         if(!sign.isSignOnScreen) {
             [sign removeFromParent];
             [signsToRemove addObject:sign];
@@ -122,21 +125,7 @@
     }
     
     for(NSMutableSet * signToRemove in signsToRemove) {
-        [self.redSigns removeObject:signToRemove];
-    }
-    
-    // TODO: not sure if we need to release Objective-C objects or if it maintains refcount by itself. needs to check.
-    
-    signsToRemove = [NSMutableSet setWithCapacity:self.greenSigns.count];
-    for(SignTarget * sign in self.greenSigns) {
-        if(!sign.isSignOnScreen) {
-            [sign removeFromParent];
-            [signsToRemove addObject:sign];
-        }
-    }
-    
-    for(NSMutableSet * signToRemove in signsToRemove) {
-        [self.greenSigns removeObject:signToRemove];
+        [self.signs removeObject:signToRemove];
     }
 }
 

@@ -23,6 +23,7 @@ static const NSTimeInterval TIME_FOR_SIGN_APPEARANCE = 0.3f;
 -(id) init {
     
     if(self = [super initWithImageNamed:@"Spaceship"]) {
+        self.isSignOnScreen = YES;
         [self setYScale:0];
         SKAction * appearAction = [SKAction scaleYTo:1.0f duration:TIME_FOR_SIGN_APPEARANCE];
         SKAction * delayBetweenDisappear = [SKAction waitForDuration:TIME_FOR_SIGN_TO_LIVE];

@@ -25,11 +25,8 @@ static NSString * const COUNTER_FORMAT = @"Kills: %ul. Lives: %ul";
 // The number of red attacked signs.
 @property NSUInteger numberOfRedAttackedSigns;
 
-// Signs of Arabs
-@property NSMutableSet * redSigns;
-
-// Signs of Israelis
-@property NSMutableSet * greenSigns;
+// Signs on screen
+@property NSMutableSet * signs;
 
 // A label with the current stats
 @property SKLabelNode * counters;
