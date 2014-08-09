@@ -46,4 +46,7 @@ static NSString * const COUNTER_FORMAT = @"Kills: %ul. Lives: %ul";
 // Cleans up signs which are supposedly removed from the screen
 -(void) cleanupRemovedSigns;
 
+// Handles power bar and touches for it
+-(void) handlePowerBar:(CFTimeInterval)diff;
+
 @end

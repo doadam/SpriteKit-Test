@@ -22,6 +22,7 @@
 		6692F7BE199658B90090AB33 /* Tayibe.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7B0199658B90090AB33 /* Tayibe.png */; };
 		6692F7BF199658B90090AB33 /* Tel aviv.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7B1199658B90090AB33 /* Tel aviv.png */; };
 		6692F7C0199658B90090AB33 /* Yokneam.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7B2199658B90090AB33 /* Yokneam.png */; };
+		6692F7C4199684B00090AB33 /* PowerBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6692F7C3199684B00090AB33 /* PowerBar.m */; };
 		66D2EADE19951968007C43B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EADD19951968007C43B3 /* Foundation.framework */; };
 		66D2EAE019951968007C43B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EADF19951968007C43B3 /* CoreGraphics.framework */; };
 		66D2EAE219951968007C43B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EAE119951968007C43B3 /* UIKit.framework */; };
@@ -69,6 +70,8 @@
 		6692F7B0199658B90090AB33 /* Tayibe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tayibe.png; path = Signs/Tayibe.png; sourceTree = "<group>"; };
 		6692F7B1199658B90090AB33 /* Tel aviv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Tel aviv.png"; path = "Signs/Tel aviv.png"; sourceTree = "<group>"; };
 		6692F7B2199658B90090AB33 /* Yokneam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Yokneam.png; path = Signs/Yokneam.png; sourceTree = "<group>"; };
+		6692F7C2199684B00090AB33 /* PowerBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerBar.h; sourceTree = "<group>"; };
+		6692F7C3199684B00090AB33 /* PowerBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PowerBar.m; sourceTree = "<group>"; };
 		66D2EADA19951968007C43B3 /* FreeBalestine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeBalestine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D2EADD19951968007C43B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66D2EADF19951968007C43B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,7 +123,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6692F788199658210090AB33 /* Signs */ = {
+		6692F788199658210090AB33 /* Signs PNGs */ = {
 			isa = PBXGroup;
 			children = (
 				6692F7A5199658B90090AB33 /* Ashdod.png */,
@@ -138,8 +141,26 @@
 				6692F7B1199658B90090AB33 /* Tel aviv.png */,
 				6692F7B2199658B90090AB33 /* Yokneam.png */,
 			);
-			name = Signs;
+			name = "Signs PNGs";
 			path = ..;
+			sourceTree = "<group>";
+		};
+		6692F7C1199684810090AB33 /* PowerBar */ = {
+			isa = PBXGroup;
+			children = (
+				6692F7C2199684B00090AB33 /* PowerBar.h */,
+				6692F7C3199684B00090AB33 /* PowerBar.m */,
+			);
+			name = PowerBar;
+			sourceTree = "<group>";
+		};
+		6692F7C5199684BB0090AB33 /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				6692F7691995B4B40090AB33 /* SignTarget.h */,
+				6692F76A1995B4B40090AB33 /* SignTarget.m */,
+			);
+			name = Sign;
 			sourceTree = "<group>";
 		};
 		66D2EAD119951968007C43B3 = {
@@ -176,9 +197,9 @@
 		66D2EAE519951968007C43B3 /* FreeBalestine */ = {
 			isa = PBXGroup;
 			children = (
-				6692F788199658210090AB33 /* Signs */,
-				6692F7691995B4B40090AB33 /* SignTarget.h */,
-				6692F76A1995B4B40090AB33 /* SignTarget.m */,
+				6692F7C5199684BB0090AB33 /* Sign */,
+				6692F7C1199684810090AB33 /* PowerBar */,
+				6692F788199658210090AB33 /* Signs PNGs */,
 				66D2EAEE19951968007C43B3 /* AppDelegate.h */,
 				66D2EAEF19951968007C43B3 /* AppDelegate.m */,
 				66D2EAF119951968007C43B3 /* Main_iPhone.storyboard */,
@@ -337,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66D2EAFC19951968007C43B3 /* MyScene.m in Sources */,
+				6692F7C4199684B00090AB33 /* PowerBar.m in Sources */,
 				6692F76B1995B4B40090AB33 /* SignTarget.m in Sources */,
 				66D2EAF919951968007C43B3 /* ViewController.m in Sources */,
 				66D2EAF019951968007C43B3 /* AppDelegate.m in Sources */,
