@@ -61,8 +61,7 @@
 
 -(void) addSign {
     // TODO: make it a bit less abitrary
-    SignTarget * sign = [SignTarget initWithRedColor:(arc4random() % 3 != 0)];
-    
+    SignTarget * sign = [SignTarget initWithRedColor:(arc4random() % 3 == 0)];
     
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     CGFloat randomXPosiiton = fmod(arc4random(), screenSize.width);

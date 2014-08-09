@@ -14,18 +14,35 @@ static const NSTimeInterval TIME_FOR_SIGN_APPEARANCE = 0.3f;
 @implementation SignTarget
 
 +(id) initWithRedColor:(BOOL)red {
-    SignTarget * sign = [[SignTarget alloc] init];
+    // Generate a random name
+    
+    NSString * signName;
+    
+    // TODO: there must be a way to create a pointer to the const array of pointers but I can't find the appropriate syntax
+    //       because objective-c is and xcode are weird!
+    
+    if(red) {
+        NSUInteger randomNameIndex = arc4random() % (sizeof(RED_SIGN_NAMES) / sizeof(RED_SIGN_NAMES[0]));
+        signName = RED_SIGN_NAMES[randomNameIndex];
+    }
+    else {
+        NSUInteger randomNameIndex = arc4random() % (sizeof(GREEN_SIGN_NAMES) / sizeof(GREEN_SIGN_NAMES[0]));
+        signName = GREEN_SIGN_NAMES[randomNameIndex];
+    }
+    
+    SignTarget * sign = [[SignTarget alloc] initWithSignName:signName];
     sign.isRedSign = red;
     
     return sign;
 }
 
--(id) init {
+-(id) initWithSignName:(NSString*)signName {
     
-    if(self = [super initWithImageNamed:@"Spaceship"]) {
+    if(self = [super initWithImageNamed:signName]) {
         self.isSignOnScreen = YES;
+        [self setScale:SIGN_SCALE];
         [self setYScale:0];
-        SKAction * appearAction = [SKAction scaleYTo:1.0f duration:TIME_FOR_SIGN_APPEARANCE];
+        SKAction * appearAction = [SKAction scaleYTo:SIGN_SCALE duration:TIME_FOR_SIGN_APPEARANCE];
         SKAction * delayBetweenDisappear = [SKAction waitForDuration:TIME_FOR_SIGN_TO_LIVE];
         SKAction * disappearAction = [SKAction scaleYTo:0.0f duration:TIME_FOR_SIGN_APPEARANCE];
         

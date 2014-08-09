@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		6692F76B1995B4B40090AB33 /* SignTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 6692F76A1995B4B40090AB33 /* SignTarget.m */; };
+		6692F7B3199658B90090AB33 /* Ashdod.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7A5199658B90090AB33 /* Ashdod.png */; };
+		6692F7B4199658B90090AB33 /* Ashkelon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7A6199658B90090AB33 /* Ashkelon.png */; };
+		6692F7B5199658B90090AB33 /* Be'er-Sheva.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7A7199658B90090AB33 /* Be'er-Sheva.png */; };
+		6692F7B6199658B90090AB33 /* Haifa.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7A8199658B90090AB33 /* Haifa.png */; };
+		6692F7B7199658B90090AB33 /* Hertzliya.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7A9199658B90090AB33 /* Hertzliya.png */; };
+		6692F7B8199658B90090AB33 /* Holon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7AA199658B90090AB33 /* Holon.png */; };
+		6692F7B9199658B90090AB33 /* Khan Yunis.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7AB199658B90090AB33 /* Khan Yunis.png */; };
+		6692F7BA199658B90090AB33 /* Netanya.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7AC199658B90090AB33 /* Netanya.png */; };
+		6692F7BB199658B90090AB33 /* Rafah.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7AD199658B90090AB33 /* Rafah.png */; };
+		6692F7BC199658B90090AB33 /* Sderot.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7AE199658B90090AB33 /* Sderot.png */; };
+		6692F7BD199658B90090AB33 /* Shejaiya.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7AF199658B90090AB33 /* Shejaiya.png */; };
+		6692F7BE199658B90090AB33 /* Tayibe.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7B0199658B90090AB33 /* Tayibe.png */; };
+		6692F7BF199658B90090AB33 /* Tel aviv.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7B1199658B90090AB33 /* Tel aviv.png */; };
+		6692F7C0199658B90090AB33 /* Yokneam.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7B2199658B90090AB33 /* Yokneam.png */; };
 		66D2EADE19951968007C43B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EADD19951968007C43B3 /* Foundation.framework */; };
 		66D2EAE019951968007C43B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EADF19951968007C43B3 /* CoreGraphics.framework */; };
 		66D2EAE219951968007C43B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EAE119951968007C43B3 /* UIKit.framework */; };
@@ -41,6 +55,20 @@
 /* Begin PBXFileReference section */
 		6692F7691995B4B40090AB33 /* SignTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignTarget.h; path = ../SignTarget.h; sourceTree = "<group>"; };
 		6692F76A1995B4B40090AB33 /* SignTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignTarget.m; path = ../SignTarget.m; sourceTree = "<group>"; };
+		6692F7A5199658B90090AB33 /* Ashdod.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ashdod.png; path = Signs/Ashdod.png; sourceTree = "<group>"; };
+		6692F7A6199658B90090AB33 /* Ashkelon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ashkelon.png; path = Signs/Ashkelon.png; sourceTree = "<group>"; };
+		6692F7A7199658B90090AB33 /* Be'er-Sheva.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Be'er-Sheva.png"; path = "Signs/Be'er-Sheva.png"; sourceTree = "<group>"; };
+		6692F7A8199658B90090AB33 /* Haifa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Haifa.png; path = Signs/Haifa.png; sourceTree = "<group>"; };
+		6692F7A9199658B90090AB33 /* Hertzliya.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Hertzliya.png; path = Signs/Hertzliya.png; sourceTree = "<group>"; };
+		6692F7AA199658B90090AB33 /* Holon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Holon.png; path = Signs/Holon.png; sourceTree = "<group>"; };
+		6692F7AB199658B90090AB33 /* Khan Yunis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Khan Yunis.png"; path = "Signs/Khan Yunis.png"; sourceTree = "<group>"; };
+		6692F7AC199658B90090AB33 /* Netanya.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Netanya.png; path = Signs/Netanya.png; sourceTree = "<group>"; };
+		6692F7AD199658B90090AB33 /* Rafah.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Rafah.png; path = Signs/Rafah.png; sourceTree = "<group>"; };
+		6692F7AE199658B90090AB33 /* Sderot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sderot.png; path = Signs/Sderot.png; sourceTree = "<group>"; };
+		6692F7AF199658B90090AB33 /* Shejaiya.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shejaiya.png; path = Signs/Shejaiya.png; sourceTree = "<group>"; };
+		6692F7B0199658B90090AB33 /* Tayibe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tayibe.png; path = Signs/Tayibe.png; sourceTree = "<group>"; };
+		6692F7B1199658B90090AB33 /* Tel aviv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Tel aviv.png"; path = "Signs/Tel aviv.png"; sourceTree = "<group>"; };
+		6692F7B2199658B90090AB33 /* Yokneam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Yokneam.png; path = Signs/Yokneam.png; sourceTree = "<group>"; };
 		66D2EADA19951968007C43B3 /* FreeBalestine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeBalestine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D2EADD19951968007C43B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66D2EADF19951968007C43B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -92,6 +120,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6692F788199658210090AB33 /* Signs */ = {
+			isa = PBXGroup;
+			children = (
+				6692F7A5199658B90090AB33 /* Ashdod.png */,
+				6692F7A6199658B90090AB33 /* Ashkelon.png */,
+				6692F7A7199658B90090AB33 /* Be'er-Sheva.png */,
+				6692F7A8199658B90090AB33 /* Haifa.png */,
+				6692F7A9199658B90090AB33 /* Hertzliya.png */,
+				6692F7AA199658B90090AB33 /* Holon.png */,
+				6692F7AB199658B90090AB33 /* Khan Yunis.png */,
+				6692F7AC199658B90090AB33 /* Netanya.png */,
+				6692F7AD199658B90090AB33 /* Rafah.png */,
+				6692F7AE199658B90090AB33 /* Sderot.png */,
+				6692F7AF199658B90090AB33 /* Shejaiya.png */,
+				6692F7B0199658B90090AB33 /* Tayibe.png */,
+				6692F7B1199658B90090AB33 /* Tel aviv.png */,
+				6692F7B2199658B90090AB33 /* Yokneam.png */,
+			);
+			name = Signs;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		66D2EAD119951968007C43B3 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +176,7 @@
 		66D2EAE519951968007C43B3 /* FreeBalestine */ = {
 			isa = PBXGroup;
 			children = (
+				6692F788199658210090AB33 /* Signs */,
 				6692F7691995B4B40090AB33 /* SignTarget.h */,
 				6692F76A1995B4B40090AB33 /* SignTarget.m */,
 				66D2EAEE19951968007C43B3 /* AppDelegate.h */,
@@ -248,11 +299,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6692F7BF199658B90090AB33 /* Tel aviv.png in Resources */,
+				6692F7B7199658B90090AB33 /* Hertzliya.png in Resources */,
 				66D2EAFE19951968007C43B3 /* Spaceship.png in Resources */,
+				6692F7B8199658B90090AB33 /* Holon.png in Resources */,
+				6692F7B9199658B90090AB33 /* Khan Yunis.png in Resources */,
+				6692F7BE199658B90090AB33 /* Tayibe.png in Resources */,
+				6692F7B4199658B90090AB33 /* Ashkelon.png in Resources */,
 				66D2EB0019951968007C43B3 /* Images.xcassets in Resources */,
+				6692F7B5199658B90090AB33 /* Be'er-Sheva.png in Resources */,
+				6692F7B3199658B90090AB33 /* Ashdod.png in Resources */,
 				66D2EAF619951968007C43B3 /* Main_iPad.storyboard in Resources */,
+				6692F7C0199658B90090AB33 /* Yokneam.png in Resources */,
+				6692F7B6199658B90090AB33 /* Haifa.png in Resources */,
+				6692F7BB199658B90090AB33 /* Rafah.png in Resources */,
 				66D2EAF319951968007C43B3 /* Main_iPhone.storyboard in Resources */,
+				6692F7BA199658B90090AB33 /* Netanya.png in Resources */,
+				6692F7BD199658B90090AB33 /* Shejaiya.png in Resources */,
 				66D2EAEA19951968007C43B3 /* InfoPlist.strings in Resources */,
+				6692F7BC199658B90090AB33 /* Sderot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
