@@ -13,4 +13,10 @@
 // A bool property which indicates whether this sign is an arab sign (isRedSign == YES) or an israeli sign (isRedSign == NO).
 @property BOOL isRedSign;
 
++(id) initWithRedColor:(BOOL)red;
+
+-(id) init;
+
+@property BOOL isSignOnScreen;
+
 @end

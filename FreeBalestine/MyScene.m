@@ -7,7 +7,7 @@
 //
 
 #import "MyScene.h"
-
+#import "SignTarget.h"
 
 @implementation MyScene
 
@@ -30,6 +30,10 @@
         [self addChild:myLabel];
         
         // Initialize counter here
+        
+        
+        // first spawn time is calculated right when the scene is initialized
+        self.lastSpawnTime = [NSDate dateWithTimeIntervalSinceNow:0];
     }
     return self;
 }
@@ -52,20 +56,98 @@
     }
 }
 
+-(void) addSign {
+    // TODO: make it a bit less abitrary
+    SignTarget * sign = [SignTarget initWithRedColor:(arc4random() % 3 != 0)];
+    
+    
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    CGFloat randomXPosiiton = fmod(arc4random(), screenSize.width);
+    CGFloat randomYPosiiton = fmod(arc4random(), screenSize.height);
+    
+    // Calculate random position on the screen
+    CGPoint signPoint = CGPointMake(randomXPosiiton, randomYPosiiton);
+    
+    sign.position = signPoint;
+    
+    if(sign.isRedSign) {
+        [self.redSigns addObject:sign];
+    }
+    else {
+        [self.greenSigns addObject:sign];
+    }
+    
+    // Finally add it to the screen
+    [self addChild:sign];
+    
+}
+
+-(NSUInteger) calculateNumberOfSignsNeededOnScreen {
+    
+    NSDate * now = [NSDate dateWithTimeIntervalSinceNow:0];
+    
+    // The formula is, each 5 seconds add an additional sign.
+    
+    NSTimeInterval timeSinceLastSpawn = [now timeIntervalSinceDate:self.lastSpawnTime];
+    
+    if((timeSinceLastSpawn / SECONDS_FOR_ADDING_SIGN) >= 1) {
+         self.lastSpawnTime = [NSDate dateWithTimeIntervalSinceNow:0];
+    }
+    
+    return timeSinceLastSpawn / SECONDS_FOR_ADDING_SIGN;
+}
+
 -(void)validateNumberOfSigns {
     
+    NSUInteger numberOfSignsOnScreen = self.redSigns.count + self.greenSigns.count;
+    NSUInteger numberOfSignsNeededOnScreen = [self calculateNumberOfSignsNeededOnScreen];
+    
+    for(; numberOfSignsOnScreen < numberOfSignsNeededOnScreen; ++numberOfSignsOnScreen) {
+        [self addSign];
+    }
 }
 
 -(void)updateCountersWithNumberOfKills:(NSUInteger)numberOfKills livesLeft:(NSUInteger)numberOfLivesLeft {
     self.counters.text = [NSString stringWithFormat:COUNTER_FORMAT, (unsigned int)self.numberOfGreenAttackedSigns, 0];
 }
 
+-(void)cleanupRemovedSigns {
+    NSMutableSet * signsToRemove = [NSMutableSet setWithCapacity:self.redSigns.count];
+    
+    for(SignTarget * sign in self.redSigns) {
+        if(!sign.isSignOnScreen) {
+            [sign removeFromParent];
+            [signsToRemove addObject:sign];
+        }
+    }
+    
+    for(NSMutableSet * signToRemove in signsToRemove) {
+        [self.redSigns removeObject:signToRemove];
+    }
+    
+    // TODO: not sure if we need to release Objective-C objects or if it maintains refcount by itself. needs to check.
+    
+    signsToRemove = [NSMutableSet setWithCapacity:self.greenSigns.count];
+    for(SignTarget * sign in self.greenSigns) {
+        if(!sign.isSignOnScreen) {
+            [sign removeFromParent];
+            [signsToRemove addObject:sign];
+        }
+    }
+    
+    for(NSMutableSet * signToRemove in signsToRemove) {
+        [self.greenSigns removeObject:signToRemove];
+    }
+}
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
     
     // Make sure there are enough signs on the screen
     [self validateNumberOfSigns];
+    
+    [self cleanupRemovedSigns];
+    
 }
 
 
