@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6692F76B1995B4B40090AB33 /* SignTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 6692F76A1995B4B40090AB33 /* SignTarget.m */; };
 		66D2EADE19951968007C43B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EADD19951968007C43B3 /* Foundation.framework */; };
 		66D2EAE019951968007C43B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EADF19951968007C43B3 /* CoreGraphics.framework */; };
 		66D2EAE219951968007C43B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EAE119951968007C43B3 /* UIKit.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6692F7691995B4B40090AB33 /* SignTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignTarget.h; path = ../SignTarget.h; sourceTree = "<group>"; };
+		6692F76A1995B4B40090AB33 /* SignTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignTarget.m; path = ../SignTarget.m; sourceTree = "<group>"; };
 		66D2EADA19951968007C43B3 /* FreeBalestine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeBalestine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D2EADD19951968007C43B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66D2EADF19951968007C43B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,6 +126,8 @@
 		66D2EAE519951968007C43B3 /* FreeBalestine */ = {
 			isa = PBXGroup;
 			children = (
+				6692F7691995B4B40090AB33 /* SignTarget.h */,
+				6692F76A1995B4B40090AB33 /* SignTarget.m */,
 				66D2EAEE19951968007C43B3 /* AppDelegate.h */,
 				66D2EAEF19951968007C43B3 /* AppDelegate.m */,
 				66D2EAF119951968007C43B3 /* Main_iPhone.storyboard */,
@@ -267,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66D2EAFC19951968007C43B3 /* MyScene.m in Sources */,
+				6692F76B1995B4B40090AB33 /* SignTarget.m in Sources */,
 				66D2EAF919951968007C43B3 /* ViewController.m in Sources */,
 				66D2EAF019951968007C43B3 /* AppDelegate.m in Sources */,
 				66D2EAEC19951968007C43B3 /* main.m in Sources */,
@@ -486,6 +492,7 @@
 				66D2EB1819951968007C43B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66D2EB1919951968007C43B3 /* Build configuration list for PBXNativeTarget "FreeBalestineTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +501,7 @@
 				66D2EB1B19951968007C43B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

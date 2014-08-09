@@ -8,6 +8,7 @@
 
 #import "MyScene.h"
 
+
 @implementation MyScene
 
 -(id)initWithSize:(CGSize)size {    
@@ -27,6 +28,8 @@
                                        CGRectGetMidY(self.frame));
         
         [self addChild:myLabel];
+        
+        // Initialize counter here
     }
     return self;
 }
@@ -49,8 +52,20 @@
     }
 }
 
+-(void)validateNumberOfSigns {
+    
+}
+
+-(void)updateCountersWithNumberOfKills:(NSUInteger)numberOfKills livesLeft:(NSUInteger)numberOfLivesLeft {
+    self.counters.text = [NSString stringWithFormat:COUNTER_FORMAT, (unsigned int)self.numberOfGreenAttackedSigns, 0];
+}
+
+
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    
+    // Make sure there are enough signs on the screen
+    [self validateNumberOfSigns];
 }
 
 
