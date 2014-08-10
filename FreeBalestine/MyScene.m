@@ -224,10 +224,10 @@ enum ObjectCategory {
     // The formula is, each 5 seconds add an additional sign.
     
     NSTimeInterval timeSinceLastSpawn = [now timeIntervalSinceDate:self.lastSpawnTime];
-    
+    /*
     if((timeSinceLastSpawn / SECONDS_FOR_ADDING_SIGN) >= 1) {
          self.lastSpawnTime = [NSDate dateWithTimeIntervalSinceNow:0];
-    }
+    }*/
     
     return timeSinceLastSpawn / SECONDS_FOR_ADDING_SIGN;
 }
