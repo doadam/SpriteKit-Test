@@ -28,6 +28,9 @@ static NSString * const COUNTER_FORMAT = @"Kills: %ul. Lives: %ul";
 // Signs on screen
 @property NSMutableSet * signs;
 
+// Missiles
+@property NSMutableSet * missiles;
+
 // A label with the current stats
 @property SKLabelNode * counters;
 

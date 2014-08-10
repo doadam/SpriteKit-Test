@@ -12,6 +12,13 @@
 
 static const NSUInteger POWER_BAR_TIMER = 0.5f;
 
+#define COLLISION_BY_GAME_OBJECTS       (1 << 1)
+
+enum ObjectCategory {
+    CATEGORY_SIGN,
+    CATEGORY_MISSILE
+};
+
 @interface MyScene()
 
 @property PowerBar * powerBar;
@@ -22,11 +29,26 @@ static const NSUInteger POWER_BAR_TIMER = 0.5f;
 
 @property CFTimeInterval lastRecord;
 
+//TODO: less hacky
+@property CGPoint lastTouchPosition;
+
 //TODO: maybe there's an implementation for it, it's so stupid I have to take care of this!
 @property BOOL isTouching;
 
 // Called when releasing the touch (firing). handles power bar graphics and stuff.
 -(void) onPowerBarRelease;
+
+// Shoots the missle!
+-(void) fireMissleWithPower:(CGFloat)power;
+
+// On collision
+-(void) createExplosionAndUpdateScores:(SKPhysicsContact*)contactObject;
+
+// Get sign from a node
+-(SignTarget*) getSignFromNode:(SKNode*)node;
+
+// HACK!! REMOVE THIS!! JUST CHECKING FOR ROTATION
+@property SKSpriteNode * currentMissile;
 
 @end
 
@@ -55,6 +77,9 @@ static const NSUInteger POWER_BAR_TIMER = 0.5f;
         
         
         self.signs = [NSMutableSet setWithCapacity:MAX_NUMBER_OF_SIGNS_ON_THE_SCREEN];
+        self.missiles = [NSMutableSet setWithCapacity:MAX_NUMBER_OF_SIGNS_ON_THE_SCREEN];
+        // HACK
+        self.currentMissile = nil;
         
         // Create the power bar here
         self.powerBar = [[PowerBar alloc] init];
@@ -66,6 +91,9 @@ static const NSUInteger POWER_BAR_TIMER = 0.5f;
         
         [self addChild:self.powerBar];
         
+        // Initialize physics here
+        self.physicsWorld.gravity = CGVectorMake(0.0f, -9.8f);
+        
         // Initialize counter here
         
         
@@ -73,6 +101,45 @@ static const NSUInteger POWER_BAR_TIMER = 0.5f;
         self.lastSpawnTime = [NSDate dateWithTimeIntervalSinceNow:0];
     }
     return self;
+}
+
+-(void) fireMissleWithPower:(CGFloat)power {
+    
+    SKSpriteNode * missile = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+
+    missile.position = CGPointMake(CGRectGetMidX(self.frame), 0.0f);
+    [missile setScale:0.25f];
+    
+    
+    self.currentMissile = missile;
+    
+    // TODO: constify
+    power *= 50.0f;
+    
+    NSLog([NSString stringWithFormat:@"Power=%f", power]);
+    
+    SKPhysicsBody * body = [SKPhysicsBody bodyWithRectangleOfSize:missile.size];
+    
+    body.contactTestBitMask |= COLLISION_BY_GAME_OBJECTS;
+    body.collisionBitMask = 0;
+    body.mass = .5f;
+    body.allowsRotation = YES;
+    
+    [self addChild:missile];
+    body.dynamic = YES;
+    missile.physicsBody = body;
+    [missile.physicsBody applyImpulse:CGVectorMake(power * (self.lastTouchPosition.x - missile.position.x > 0 ? 1.0f : -1.0f),
+                                                   power*10.0f)];
+    
+    // Create tail, TODO: another function??
+    NSString *rocketTailString = [[NSBundle mainBundle] pathForResource:@"RocketTail" ofType:@"sks"];
+    SKEmitterNode * rocketTail = [NSKeyedUnarchiver unarchiveObjectWithFile:rocketTailString];
+    
+    rocketTail.position = CGPointMake(0, -180.0f);
+    rocketTail.targetNode = self;
+    
+    [missile addChild:rocketTail];
+
 }
 
 -(void) onPowerBarRelease {
@@ -85,11 +152,16 @@ static const NSUInteger POWER_BAR_TIMER = 0.5f;
                                            [SKAction fadeInWithDuration:0.05f]]];
     [self.powerBar runAction:[SKAction repeatAction:blink count:4] completion:^{
         self.powerBar.isBlinking = NO;
+        [self fireMissleWithPower:[self.powerBar getPower]];
     }];
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     self.isTouching = NO;
+    
+    self.lastTouchPosition = [[touches anyObject] locationInNode:self];
+    
+    NSLog([NSString stringWithFormat:@"Left touch at (%f, %f)", self.lastTouchPosition.x, self.lastTouchPosition.y]);
     
     [self onPowerBarRelease];
 }
@@ -103,6 +175,8 @@ static const NSUInteger POWER_BAR_TIMER = 0.5f;
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         
+        
+        
         SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
         
         sprite.position = location;
@@ -112,14 +186,20 @@ static const NSUInteger POWER_BAR_TIMER = 0.5f;
         [sprite runAction:[SKAction repeatActionForever:action]];
         
         [self addChild:sprite];
-    }
+    }*/
      
-     */
+    
 }
 
 -(void) addSign {
     // TODO: make it a bit less abitrary
     SignTarget * sign = [SignTarget initWithRedColor:(arc4random() % 3 == 0)];
+    
+    SKPhysicsBody * body = [SKPhysicsBody bodyWithCircleOfRadius:sign.size.width/2];
+    body.affectedByGravity = NO;
+    body.contactTestBitMask |= COLLISION_BY_GAME_OBJECTS;
+    body.collisionBitMask = 0;
+    sign.physicsBody = body;
     
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     CGFloat randomXPosiiton = fmod(arc4random(), screenSize.width);
@@ -245,16 +325,57 @@ static const NSUInteger POWER_BAR_TIMER = 0.5f;
     // Power bar timer.
     [self handlePowerBar:diff];
     
-    
+    // Rotate missile according to movement.
+    if (self.currentMissile) {
+        CGVector currentVelocity = self.currentMissile.physicsBody.velocity;
+        self.currentMissile.zRotation = atan2f(currentVelocity.dx, currentVelocity.dy);
+    }
     
     [self cleanupRemovedSigns];
     
 }
 
+-(SignTarget *)getSignFromNode:(SKNode *)node {
+    return nil;
+}
+
+-(void)createExplosionAndUpdateScores:(SKPhysicsContact *)contactObject {
+    
+    SKNode * missileNode = contactObject.bodyA.node;
+    SKNode * signNode = contactObject.bodyB.node;
+    
+
+    // TODO: less ugly, the API of userData returns nil for some reason...
+    if (!([self.signs containsObject:missileNode] ^ [self.signs containsObject:signNode])) {
+        return;
+    }
+    
+    if ([self.signs containsObject:missileNode]) {
+        missileNode = contactObject.bodyB.node;
+        signNode = contactObject.bodyA.node;
+    }
+    
+    NSLog(@"Preparing explosion...");
+    
+    NSString *firePath = [[NSBundle mainBundle] pathForResource:@"Explosion" ofType:@"sks"];
+    SKEmitterNode * fire = [NSKeyedUnarchiver unarchiveObjectWithFile:firePath];
+    
+    [fire setScale:0.2f];
+    
+    fire.position = contactObject.contactPoint;
+    [self addChild:fire];
+    
+    [missileNode removeFromParent];
+    ((SignTarget*)signNode).isSignOnScreen = NO; // Append for removal.
+    
+    
+    // TODO: update points
+    
+}
 
 // Collision detection
 - (void)didBeginContact:(SKPhysicsContact *)contact {
-    
+    [self createExplosionAndUpdateScores:contact];
 }
 
 @end
