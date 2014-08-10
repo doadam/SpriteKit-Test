@@ -116,7 +116,7 @@ enum ObjectCategory {
     // TODO: constify
     power *= 50.0f;
     
-    NSLog([NSString stringWithFormat:@"Power=%f", power]);
+    NSLog(@"Power=%f", power);
     
     SKPhysicsBody * body = [SKPhysicsBody bodyWithRectangleOfSize:missile.size];
     
@@ -161,7 +161,7 @@ enum ObjectCategory {
     
     self.lastTouchPosition = [[touches anyObject] locationInNode:self];
     
-    NSLog([NSString stringWithFormat:@"Left touch at (%f, %f)", self.lastTouchPosition.x, self.lastTouchPosition.y]);
+    NSLog(@"Left touch at (%f, %f)", self.lastTouchPosition.x, self.lastTouchPosition.y);
     
     [self onPowerBarRelease];
 }
