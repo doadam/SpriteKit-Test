@@ -47,6 +47,8 @@ static const CGFloat MUSA_SCALE = 0.15f;
 // Get sign from a node
 -(SignTarget*) getSignFromNode:(SKNode*)node;
 
+-(CGPoint) generateNewSignPosition;
+
 // HACK!! REMOVE THIS!! JUST CHECKING FOR ROTATION
 @property Missile * currentMissile;
 
@@ -177,6 +179,22 @@ static const CGFloat MUSA_SCALE = 0.15f;
     
 }
 
+-(CGPoint) generateNewSignPosition {
+    
+    CGPoint newPosition = {0};
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    CGFloat randomXPosiiton = fmod(arc4random(), screenSize.width);
+    CGFloat randomYPosiiton = fmod(arc4random(), screenSize.height);
+    randomYPosiiton += screenSize.height*0.15f;
+    if(randomYPosiiton > screenSize.height) {
+        randomYPosiiton = screenSize.height;
+    }
+    
+    newPosition = CGPointMake(randomXPosiiton, randomYPosiiton);
+    
+    return newPosition;
+}
+
 -(void) addSign {
     // TODO: make it a bit less abitrary
     SignTarget * sign = [SignTarget initWithRedColor:(arc4random() % 3 == 0)];
@@ -187,12 +205,8 @@ static const CGFloat MUSA_SCALE = 0.15f;
     body.collisionBitMask = 0;
     sign.physicsBody = body;
     
-    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-    CGFloat randomXPosiiton = fmod(arc4random(), screenSize.width);
-    CGFloat randomYPosiiton = fmod(arc4random(), screenSize.height);
-    
     // Calculate random position on the screen
-    CGPoint signPoint = CGPointMake(randomXPosiiton, randomYPosiiton);
+    CGPoint signPoint = [self generateNewSignPosition];
     
     sign.position = signPoint;
     
