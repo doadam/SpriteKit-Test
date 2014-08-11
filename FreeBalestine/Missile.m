@@ -7,7 +7,7 @@
 //
 
 #import "Missile.h"
-#import "FreeBalestine/Common.h" //TODO: wtf? why do I have to add FreeBalestine?
+#import "Common.h"
 
 // TODO: maybe create a better PNGs? don't really give a damn about it
 static const CGFloat SCALE_MODIFIER = 0.25f;

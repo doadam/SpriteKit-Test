@@ -10,7 +10,7 @@
 #import "SignTarget.h"
 #import "PowerBar.h"
 #import "Common.h"
-#import "../Missile.h" // TODO: not supposed to be like this...
+#import "Missile.h"
 
 static const CGFloat POWER_BAR_TIMER = 0.01f;
 static const CGFloat POWER_MODIFIER = 50.0f;
