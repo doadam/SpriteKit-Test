@@ -386,6 +386,7 @@ static const CGFloat MUSA_SCALE = 0.15f;
     NSLog(@"Preparing explosion...");
     
     // TODO: this should all be a different class.
+    // TODO: this should be created once and added to the screen for every collision. I think this NSKeyedUnarchiver fucks up everything.
     NSString *firePath = [[NSBundle mainBundle] pathForResource:@"Explosion" ofType:@"sks"];
     SKEmitterNode * fire = [NSKeyedUnarchiver unarchiveObjectWithFile:firePath];
     
@@ -403,6 +404,7 @@ static const CGFloat MUSA_SCALE = 0.15f;
 }
 
 // Collision detection
+// TODO: find out why there are FPS drops.
 - (void)didBeginContact:(SKPhysicsContact *)contact {
     [self createExplosionAndUpdateScores:contact];
 }
