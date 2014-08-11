@@ -47,7 +47,8 @@ static const CGFloat TAIL_Y_POINT = -180.0f;
         [self setPosition:position];
         SKPhysicsBody * body = [SKPhysicsBody bodyWithRectangleOfSize:self.size];
         
-        body.contactTestBitMask |= COLLISION_BY_GAME_OBJECTS;
+        body.contactTestBitMask |= CATEGORY_SIGN;
+        body.categoryBitMask = CATEGORY_MISSILE;
         body.collisionBitMask = 0;
         body.mass = BODY_MASS;
         body.allowsRotation = YES;

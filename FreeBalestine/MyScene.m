@@ -21,6 +21,42 @@ static const CGFloat MUSA_SCALE = 0.15f;
 
 @interface MyScene()
 
+// Indicates whether Hummus has been eaten (if YES, then all the signs are green).
+@property BOOL hasEatenHummus;
+
+// The number of green attacked signs.
+@property NSUInteger numberOfGreenAttackedSigns;
+
+// The number of red attacked signs.
+@property NSUInteger numberOfRedAttackedSigns;
+
+// Signs on screen
+@property NSMutableSet * signs;
+
+// Missiles
+@property NSMutableSet * missiles;
+
+// A label with the current stats
+@property SKLabelNode * counters;
+
+// The time when the scene started.
+@property NSDate * lastSpawnTime;
+
+// Makes sure that there are enough signs on the game map.
+-(void) validateNumberOfSigns;
+
+// Updates counters, just a format thing
+-(void) updateCountersWithNumberOfKills:(NSUInteger)numberOfKills livesLeft:(NSUInteger)numberOfLivesLeft;
+
+// Adds a sign to the screen
+-(void) addSign;
+
+// Cleans up signs which are supposedly removed from the screen
+-(void) cleanupRemovedSigns;
+
+// Handles power bar and touches for it
+-(void) handlePowerBar:(CFTimeInterval)diff;
+
 @property PowerBar * powerBar;
 
 @property CFTimeInterval decreasePowerBarTimer;
@@ -200,12 +236,6 @@ static const CGFloat MUSA_SCALE = 0.15f;
     // TODO: make it a bit less abitrary
     SignTarget * sign = [SignTarget initWithRedColor:(arc4random() % 3 == 0)];
     
-    SKPhysicsBody * body = [SKPhysicsBody bodyWithCircleOfRadius:sign.size.width/2];
-    body.affectedByGravity = NO;
-    body.contactTestBitMask |= COLLISION_BY_GAME_OBJECTS;
-    body.collisionBitMask = 0;
-    sign.physicsBody = body;
-    
     // Calculate random position on the screen
     CGPoint signPoint = [self generateNewSignPosition];
     
@@ -355,6 +385,7 @@ static const CGFloat MUSA_SCALE = 0.15f;
     
     NSLog(@"Preparing explosion...");
     
+    // TODO: this should all be a different class.
     NSString *firePath = [[NSBundle mainBundle] pathForResource:@"Explosion" ofType:@"sks"];
     SKEmitterNode * fire = [NSKeyedUnarchiver unarchiveObjectWithFile:firePath];
     

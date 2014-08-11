@@ -7,7 +7,7 @@
 //
 
 #import "SignTarget.h"
-
+#import "Common.h"
 
 static const NSTimeInterval TIME_FOR_SIGN_TO_LIVE = 3.0f;
 static const NSTimeInterval TIME_FOR_SIGN_APPEARANCE = 0.3f;
@@ -42,6 +42,14 @@ static const NSTimeInterval TIME_FOR_SIGN_APPEARANCE = 0.3f;
         self.isSignOnScreen = YES;
         [self setScale:SIGN_SCALE];
         [self setYScale:0];
+        
+        SKPhysicsBody * body = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
+        body.affectedByGravity = NO;
+        body.contactTestBitMask |= CATEGORY_MISSILE;
+        body.categoryBitMask = CATEGORY_SIGN;
+        body.collisionBitMask = 0;
+        self.physicsBody = body;
+        
         SKAction * appearAction = [SKAction scaleYTo:SIGN_SCALE duration:TIME_FOR_SIGN_APPEARANCE];
         SKAction * delayBetweenDisappear = [SKAction waitForDuration:TIME_FOR_SIGN_TO_LIVE];
         SKAction * disappearAction = [SKAction scaleYTo:0.0f duration:TIME_FOR_SIGN_APPEARANCE];
