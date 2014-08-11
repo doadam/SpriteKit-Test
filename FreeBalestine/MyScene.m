@@ -10,7 +10,11 @@
 #import "SignTarget.h"
 #import "PowerBar.h"
 
-static const NSUInteger POWER_BAR_TIMER = 0.5f;
+static const CGFloat POWER_BAR_TIMER = 0.5f;
+static const CGFloat POWER_MODIFIER = 50.0f;
+static const CGFloat BLINK_DURATION = 0.05f;
+static const CGFloat BLINK_TIMES = 4.0f;
+static const CGFloat POWER_BAR_STEPPING = 0.05f;
 
 #define COLLISION_BY_GAME_OBJECTS       (1 << 1)
 
@@ -113,8 +117,7 @@ enum ObjectCategory {
     
     self.currentMissile = missile;
     
-    // TODO: constify
-    power *= 50.0f;
+    power *= POWER_MODIFIER;
     
     NSLog(@"Power=%f", power);
     
@@ -146,11 +149,10 @@ enum ObjectCategory {
     self.powerBar.isBlinking = YES;
     
     // Make powerbar blinking
-    // TODO: constify
     SKAction *blink = [SKAction sequence:@[
-                                           [SKAction fadeOutWithDuration:0.05f],
-                                           [SKAction fadeInWithDuration:0.05f]]];
-    [self.powerBar runAction:[SKAction repeatAction:blink count:4] completion:^{
+                                           [SKAction fadeOutWithDuration:BLINK_DURATION],
+                                           [SKAction fadeInWithDuration:BLINK_DURATION]]];
+    [self.powerBar runAction:[SKAction repeatAction:blink count:BLINK_TIMES] completion:^{
         self.powerBar.isBlinking = NO;
         [self fireMissleWithPower:[self.powerBar getPower]];
     }];
@@ -282,8 +284,7 @@ enum ObjectCategory {
             CGFloat currentPowerBarValue = [self.powerBar getPower];
             if(currentPowerBarValue > 0) {
                 
-                //TODO: make a const for it
-                [self.powerBar setPower:currentPowerBarValue-0.05f];
+                [self.powerBar setPower:currentPowerBarValue - POWER_BAR_STEPPING];
             }
         }
         else {
@@ -299,8 +300,7 @@ enum ObjectCategory {
             CGFloat currentPowerBarValue = [self.powerBar getPower];
             if(currentPowerBarValue < 1.0f) {
                 
-                //TODO: make a const for it
-                [self.powerBar setPower:currentPowerBarValue+0.05f];
+                [self.powerBar setPower:currentPowerBarValue + POWER_BAR_STEPPING];
             }
         }
         else {
