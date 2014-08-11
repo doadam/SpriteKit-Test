@@ -17,6 +17,7 @@ static const CGFloat POWER_MODIFIER = 50.0f;
 static const CGFloat BLINK_DURATION = 0.05f;
 static const CGFloat BLINK_TIMES = 4.0f;
 static const CGFloat POWER_BAR_STEPPING = 0.05f;
+static const CGFloat MUSA_SCALE = 0.15f;
 
 @interface MyScene()
 
@@ -92,6 +93,13 @@ static const CGFloat POWER_BAR_STEPPING = 0.05f;
         
         // Initialize physics here
         self.physicsWorld.gravity = CGVectorMake(0.0f, -9.8f);
+        
+        // Create a Musa here. Right now I'm not creating a class for this (not needed, yet ;))
+        SKSpriteNode * musaNode = [SKSpriteNode spriteNodeWithImageNamed:@"musa"];
+        [musaNode setScale:MUSA_SCALE];
+        musaNode.position = CGPointMake(CGRectGetMidX(self.frame), musaNode.size.height/2);
+        [self addChild:musaNode];
+        
         
         // Initialize counter here
         

@@ -28,6 +28,7 @@
 		66AE1A2F19980C450081B2F6 /* RocketTail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 66AE1A2D19980C450081B2F6 /* RocketTail.sks */; };
 		66AE1A3019980C450081B2F6 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AE1A2E19980C450081B2F6 /* spark.png */; };
 		66AE1A3319992F860081B2F6 /* Missile.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AE1A3219992F860081B2F6 /* Missile.m */; };
+		66AE1A3719993BAA0081B2F6 /* musa.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AE1A3619993BAA0081B2F6 /* musa.png */; };
 		66D2EADE19951968007C43B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EADD19951968007C43B3 /* Foundation.framework */; };
 		66D2EAE019951968007C43B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EADF19951968007C43B3 /* CoreGraphics.framework */; };
 		66D2EAE219951968007C43B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EAE119951968007C43B3 /* UIKit.framework */; };
@@ -84,6 +85,7 @@
 		66AE1A3119992F860081B2F6 /* Missile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Missile.h; path = ../Missile.h; sourceTree = "<group>"; };
 		66AE1A3219992F860081B2F6 /* Missile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Missile.m; path = ../Missile.m; sourceTree = "<group>"; };
 		66AE1A35199931500081B2F6 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		66AE1A3619993BAA0081B2F6 /* musa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musa.png; sourceTree = "<group>"; };
 		66D2EADA19951968007C43B3 /* FreeBalestine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeBalestine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D2EADD19951968007C43B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66D2EADF19951968007C43B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -242,6 +244,7 @@
 				66D2EAF719951968007C43B3 /* ViewController.h */,
 				66D2EAF819951968007C43B3 /* ViewController.m */,
 				66D2EAFA19951968007C43B3 /* MyScene.h */,
+				66AE1A3619993BAA0081B2F6 /* musa.png */,
 				66D2EAFB19951968007C43B3 /* MyScene.m */,
 				66D2EAFD19951968007C43B3 /* Spaceship.png */,
 				66D2EAFF19951968007C43B3 /* Images.xcassets */,
@@ -372,6 +375,7 @@
 				66AE1A3019980C450081B2F6 /* spark.png in Resources */,
 				6692F7B6199658B90090AB33 /* Haifa.png in Resources */,
 				6692F7BB199658B90090AB33 /* Rafah.png in Resources */,
+				66AE1A3719993BAA0081B2F6 /* musa.png in Resources */,
 				66D2EAF319951968007C43B3 /* Main_iPhone.storyboard in Resources */,
 				6692F7BA199658B90090AB33 /* Netanya.png in Resources */,
 				6692F7BD199658B90090AB33 /* Shejaiya.png in Resources */,
