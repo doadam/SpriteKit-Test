@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6692F76B1995B4B40090AB33 /* SignTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 6692F76A1995B4B40090AB33 /* SignTarget.m */; };
 		6692F7B3199658B90090AB33 /* Ashdod.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7A5199658B90090AB33 /* Ashdod.png */; };
 		6692F7B4199658B90090AB33 /* Ashkelon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7A6199658B90090AB33 /* Ashkelon.png */; };
 		6692F7B5199658B90090AB33 /* Be'er-Sheva.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7A7199658B90090AB33 /* Be'er-Sheva.png */; };
@@ -27,8 +26,9 @@
 		66AE1A2C1997F6D00081B2F6 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AE1A2A1997F6D00081B2F6 /* spark.png */; };
 		66AE1A2F19980C450081B2F6 /* RocketTail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 66AE1A2D19980C450081B2F6 /* RocketTail.sks */; };
 		66AE1A3019980C450081B2F6 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AE1A2E19980C450081B2F6 /* spark.png */; };
-		66AE1A3319992F860081B2F6 /* Missile.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AE1A3219992F860081B2F6 /* Missile.m */; };
 		66AE1A3719993BAA0081B2F6 /* musa.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AE1A3619993BAA0081B2F6 /* musa.png */; };
+		66AE1A3B1999407E0081B2F6 /* SignTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AE1A3A1999407E0081B2F6 /* SignTarget.m */; };
+		66AE1A3E199940860081B2F6 /* Missile.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AE1A3D199940860081B2F6 /* Missile.m */; };
 		66D2EADE19951968007C43B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EADD19951968007C43B3 /* Foundation.framework */; };
 		66D2EAE019951968007C43B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EADF19951968007C43B3 /* CoreGraphics.framework */; };
 		66D2EAE219951968007C43B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EAE119951968007C43B3 /* UIKit.framework */; };
@@ -60,8 +60,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6692F7691995B4B40090AB33 /* SignTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignTarget.h; path = ../SignTarget.h; sourceTree = "<group>"; };
-		6692F76A1995B4B40090AB33 /* SignTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignTarget.m; path = ../SignTarget.m; sourceTree = "<group>"; };
 		6692F7A5199658B90090AB33 /* Ashdod.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ashdod.png; path = Signs/Ashdod.png; sourceTree = "<group>"; };
 		6692F7A6199658B90090AB33 /* Ashkelon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ashkelon.png; path = Signs/Ashkelon.png; sourceTree = "<group>"; };
 		6692F7A7199658B90090AB33 /* Be'er-Sheva.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Be'er-Sheva.png"; path = "Signs/Be'er-Sheva.png"; sourceTree = "<group>"; };
@@ -82,10 +80,12 @@
 		66AE1A2A1997F6D00081B2F6 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../spark.png; sourceTree = "<group>"; };
 		66AE1A2D19980C450081B2F6 /* RocketTail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RocketTail.sks; sourceTree = "<group>"; };
 		66AE1A2E19980C450081B2F6 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
-		66AE1A3119992F860081B2F6 /* Missile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Missile.h; path = ../Missile.h; sourceTree = "<group>"; };
-		66AE1A3219992F860081B2F6 /* Missile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Missile.m; path = ../Missile.m; sourceTree = "<group>"; };
-		66AE1A35199931500081B2F6 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		66AE1A3619993BAA0081B2F6 /* musa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musa.png; sourceTree = "<group>"; };
+		66AE1A381999404C0081B2F6 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		66AE1A391999407E0081B2F6 /* SignTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignTarget.h; sourceTree = "<group>"; };
+		66AE1A3A1999407E0081B2F6 /* SignTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignTarget.m; sourceTree = "<group>"; };
+		66AE1A3C199940860081B2F6 /* Missile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Missile.h; sourceTree = "<group>"; };
+		66AE1A3D199940860081B2F6 /* Missile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Missile.m; sourceTree = "<group>"; };
 		66D2EADA19951968007C43B3 /* FreeBalestine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeBalestine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D2EADD19951968007C43B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66D2EADF19951968007C43B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -171,8 +171,8 @@
 		6692F7C5199684BB0090AB33 /* Sign */ = {
 			isa = PBXGroup;
 			children = (
-				6692F7691995B4B40090AB33 /* SignTarget.h */,
-				6692F76A1995B4B40090AB33 /* SignTarget.m */,
+				66AE1A391999407E0081B2F6 /* SignTarget.h */,
+				66AE1A3A1999407E0081B2F6 /* SignTarget.m */,
 			);
 			name = Sign;
 			sourceTree = "<group>";
@@ -191,8 +191,8 @@
 		66AE1A3419992F8F0081B2F6 /* Missile */ = {
 			isa = PBXGroup;
 			children = (
-				66AE1A3119992F860081B2F6 /* Missile.h */,
-				66AE1A3219992F860081B2F6 /* Missile.m */,
+				66AE1A3C199940860081B2F6 /* Missile.h */,
+				66AE1A3D199940860081B2F6 /* Missile.m */,
 			);
 			name = Missile;
 			sourceTree = "<group>";
@@ -231,7 +231,7 @@
 		66D2EAE519951968007C43B3 /* FreeBalestine */ = {
 			isa = PBXGroup;
 			children = (
-				66AE1A35199931500081B2F6 /* Common.h */,
+				66AE1A381999404C0081B2F6 /* Common.h */,
 				66AE1A3419992F8F0081B2F6 /* Missile */,
 				66AE1A241997F2E70081B2F6 /* Explosion Particle */,
 				6692F7C5199684BB0090AB33 /* Sign */,
@@ -401,10 +401,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				66D2EAFC19951968007C43B3 /* MyScene.m in Sources */,
+				66AE1A3B1999407E0081B2F6 /* SignTarget.m in Sources */,
 				6692F7C4199684B00090AB33 /* PowerBar.m in Sources */,
-				6692F76B1995B4B40090AB33 /* SignTarget.m in Sources */,
 				66D2EAF919951968007C43B3 /* ViewController.m in Sources */,
-				66AE1A3319992F860081B2F6 /* Missile.m in Sources */,
+				66AE1A3E199940860081B2F6 /* Missile.m in Sources */,
 				66D2EAF019951968007C43B3 /* AppDelegate.m in Sources */,
 				66D2EAEC19951968007C43B3 /* main.m in Sources */,
 			);

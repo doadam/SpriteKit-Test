@@ -80,6 +80,7 @@ static const CGFloat MUSA_SCALE = 0.15f;
         
         self.signs = [NSMutableSet setWithCapacity:MAX_NUMBER_OF_SIGNS_ON_THE_SCREEN];
         self.missiles = [NSMutableSet setWithCapacity:MAX_NUMBER_OF_SIGNS_ON_THE_SCREEN];
+        
         // HACK
         self.currentMissile = nil;
         
