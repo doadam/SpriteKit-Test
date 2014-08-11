@@ -14,6 +14,8 @@ static NSString * const COUNTER_FORMAT = @"Kills: %ul. Lives: %ul";
 
 #import <SpriteKit/SpriteKit.h>
 
+
+// TODO: privates should be private
 @interface MyScene : SKScene <SKPhysicsContactDelegate>
 
 // Indicates whether Hummus has been eaten (if YES, then all the signs are green).

@@ -9,19 +9,14 @@
 #import "MyScene.h"
 #import "SignTarget.h"
 #import "PowerBar.h"
+#import "Common.h"
+#import "../Missile.h" // TODO: not supposed to be like this...
 
-static const CGFloat POWER_BAR_TIMER = 0.5f;
+static const CGFloat POWER_BAR_TIMER = 0.01f;
 static const CGFloat POWER_MODIFIER = 50.0f;
 static const CGFloat BLINK_DURATION = 0.05f;
 static const CGFloat BLINK_TIMES = 4.0f;
 static const CGFloat POWER_BAR_STEPPING = 0.05f;
-
-#define COLLISION_BY_GAME_OBJECTS       (1 << 1)
-
-enum ObjectCategory {
-    CATEGORY_SIGN,
-    CATEGORY_MISSILE
-};
 
 @interface MyScene()
 
@@ -52,7 +47,7 @@ enum ObjectCategory {
 -(SignTarget*) getSignFromNode:(SKNode*)node;
 
 // HACK!! REMOVE THIS!! JUST CHECKING FOR ROTATION
-@property SKSpriteNode * currentMissile;
+@property Missile * currentMissile;
 
 @end
 
@@ -108,12 +103,11 @@ enum ObjectCategory {
 }
 
 -(void) fireMissleWithPower:(CGFloat)power {
-    
-    SKSpriteNode * missile = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
 
-    missile.position = CGPointMake(CGRectGetMidX(self.frame), 0.0f);
-    [missile setScale:0.25f];
+    CGPoint missileStartingPosition = CGPointMake(CGRectGetMidX(self.frame), 0.0f);
+    Missile * missile = [[Missile alloc] initForFrame:self atPosition:missileStartingPosition];
     
+    [self addChild:missile];
     
     self.currentMissile = missile;
     
@@ -121,27 +115,9 @@ enum ObjectCategory {
     
     NSLog(@"Power=%f", power);
     
-    SKPhysicsBody * body = [SKPhysicsBody bodyWithRectangleOfSize:missile.size];
+    [missile fireWithForce:CGVectorMake(power * (self.lastTouchPosition.x - missile.position.x > 0 ? 1.0f : -1.0f),
+                                        power*10.0f)];
     
-    body.contactTestBitMask |= COLLISION_BY_GAME_OBJECTS;
-    body.collisionBitMask = 0;
-    body.mass = .5f;
-    body.allowsRotation = YES;
-    
-    [self addChild:missile];
-    body.dynamic = YES;
-    missile.physicsBody = body;
-    [missile.physicsBody applyImpulse:CGVectorMake(power * (self.lastTouchPosition.x - missile.position.x > 0 ? 1.0f : -1.0f),
-                                                   power*10.0f)];
-    
-    // Create tail, TODO: another function??
-    NSString *rocketTailString = [[NSBundle mainBundle] pathForResource:@"RocketTail" ofType:@"sks"];
-    SKEmitterNode * rocketTail = [NSKeyedUnarchiver unarchiveObjectWithFile:rocketTailString];
-    
-    rocketTail.position = CGPointMake(0, -180.0f);
-    rocketTail.targetNode = self;
-    
-    [missile addChild:rocketTail];
 
 }
 
@@ -327,8 +303,7 @@ enum ObjectCategory {
     
     // Rotate missile according to movement.
     if (self.currentMissile) {
-        CGVector currentVelocity = self.currentMissile.physicsBody.velocity;
-        self.currentMissile.zRotation = atan2f(currentVelocity.dx, currentVelocity.dy);
+        [self.currentMissile updateRotation];
     }
     
     [self cleanupRemovedSigns];
