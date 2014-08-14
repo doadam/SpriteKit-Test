@@ -22,6 +22,8 @@
 		6692F7BF199658B90090AB33 /* Tel aviv.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7B1199658B90090AB33 /* Tel aviv.png */; };
 		6692F7C0199658B90090AB33 /* Yokneam.png in Resources */ = {isa = PBXBuildFile; fileRef = 6692F7B2199658B90090AB33 /* Yokneam.png */; };
 		6692F7C4199684B00090AB33 /* PowerBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6692F7C3199684B00090AB33 /* PowerBar.m */; };
+		66A2175F199A902C00AFCDCC /* musabg.caf in Resources */ = {isa = PBXBuildFile; fileRef = 66A2175E199A902C00AFCDCC /* musabg.caf */; };
+		66A21761199A916A00AFCDCC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A21760199A916A00AFCDCC /* AVFoundation.framework */; };
 		66AE1A2B1997F6D00081B2F6 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 66AE1A291997F6D00081B2F6 /* Explosion.sks */; };
 		66AE1A2C1997F6D00081B2F6 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AE1A2A1997F6D00081B2F6 /* spark.png */; };
 		66AE1A2F19980C450081B2F6 /* RocketTail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 66AE1A2D19980C450081B2F6 /* RocketTail.sks */; };
@@ -76,6 +78,8 @@
 		6692F7B2199658B90090AB33 /* Yokneam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Yokneam.png; path = Signs/Yokneam.png; sourceTree = "<group>"; };
 		6692F7C2199684B00090AB33 /* PowerBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerBar.h; sourceTree = "<group>"; };
 		6692F7C3199684B00090AB33 /* PowerBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PowerBar.m; sourceTree = "<group>"; };
+		66A2175E199A902C00AFCDCC /* musabg.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = musabg.caf; sourceTree = "<group>"; };
+		66A21760199A916A00AFCDCC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		66AE1A291997F6D00081B2F6 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Explosion.sks; path = ../Explosion.sks; sourceTree = "<group>"; };
 		66AE1A2A1997F6D00081B2F6 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../spark.png; sourceTree = "<group>"; };
 		66AE1A2D19980C450081B2F6 /* RocketTail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RocketTail.sks; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66A21761199A916A00AFCDCC /* AVFoundation.framework in Frameworks */,
 				66D2EAE019951968007C43B3 /* CoreGraphics.framework in Frameworks */,
 				66D2EAE219951968007C43B3 /* UIKit.framework in Frameworks */,
 				66D2EAE419951968007C43B3 /* SpriteKit.framework in Frameworks */,
@@ -219,6 +224,7 @@
 		66D2EADC19951968007C43B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66A21760199A916A00AFCDCC /* AVFoundation.framework */,
 				66D2EADD19951968007C43B3 /* Foundation.framework */,
 				66D2EADF19951968007C43B3 /* CoreGraphics.framework */,
 				66D2EAE119951968007C43B3 /* UIKit.framework */,
@@ -231,6 +237,7 @@
 		66D2EAE519951968007C43B3 /* FreeBalestine */ = {
 			isa = PBXGroup;
 			children = (
+				66A2175E199A902C00AFCDCC /* musabg.caf */,
 				66AE1A381999404C0081B2F6 /* Common.h */,
 				66AE1A3419992F8F0081B2F6 /* Missile */,
 				66AE1A241997F2E70081B2F6 /* Explosion Particle */,
@@ -376,6 +383,7 @@
 				6692F7B6199658B90090AB33 /* Haifa.png in Resources */,
 				6692F7BB199658B90090AB33 /* Rafah.png in Resources */,
 				66AE1A3719993BAA0081B2F6 /* musa.png in Resources */,
+				66A2175F199A902C00AFCDCC /* musabg.caf in Resources */,
 				66D2EAF319951968007C43B3 /* Main_iPhone.storyboard in Resources */,
 				6692F7BA199658B90090AB33 /* Netanya.png in Resources */,
 				6692F7BD199658B90090AB33 /* Shejaiya.png in Resources */,

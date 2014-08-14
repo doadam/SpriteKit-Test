@@ -12,6 +12,8 @@
 #import "Common.h"
 #import "Missile.h"
 
+@import AVFoundation;
+
 static const CGFloat POWER_BAR_TIMER = 0.01f;
 static const CGFloat POWER_MODIFIER = 50.0f;
 static const CGFloat BLINK_DURATION = 0.05f;
@@ -83,6 +85,10 @@ static const CGFloat MUSA_SCALE = 0.15f;
 // Get sign from a node
 -(SignTarget*) getSignFromNode:(SKNode*)node;
 
+@property (nonatomic) AVAudioPlayer * backgroundMusicPlayer;
+
+-(void) playBackgroundMusic;
+
 -(CGPoint) generateNewSignPosition;
 
 // HACK!! REMOVE THIS!! JUST CHECKING FOR ROTATION
@@ -91,6 +97,15 @@ static const CGFloat MUSA_SCALE = 0.15f;
 @end
 
 @implementation MyScene
+
+-(void)playBackgroundMusic {
+    
+    NSError *error;
+    NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"musabg" withExtension:@"caf"];
+    self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+    [self.backgroundMusicPlayer prepareToPlay];
+    [self.backgroundMusicPlayer play];
+}
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
@@ -138,6 +153,8 @@ static const CGFloat MUSA_SCALE = 0.15f;
         [musaNode setScale:MUSA_SCALE];
         musaNode.position = CGPointMake(CGRectGetMidX(self.frame), musaNode.size.height/2);
         [self addChild:musaNode];
+    
+        [self playBackgroundMusic];
         
         
         // Initialize counter here
