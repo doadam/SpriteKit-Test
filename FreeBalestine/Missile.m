@@ -56,7 +56,7 @@ static const CGFloat TAIL_Y_POINT = -180.0f;
         body.dynamic = YES;
         self.physicsBody = body;
         
-        // TODO: restore tail when it's not flickring
+        // TODO: fix missile power, just change some stats and upload the new sks to the phone.
         //SKEmitterNode * rocketTail = [self createTailWithTargetNode:parent];
         
         //[self addChild:rocketTail];

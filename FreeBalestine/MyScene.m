@@ -178,7 +178,7 @@ static const CGFloat MUSA_SCALE = 0.15f;
         [self.motionMgr startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
             CMAcceleration acceleration = accelerometerData.acceleration;
             
-            self.xAcceleration = (acceleration.x * 0.75) + (self.xAcceleration * 0.25);
+            self.xAcceleration = (acceleration.x * 3);
         }];
         
         // Initialize counter here
@@ -192,7 +192,7 @@ static const CGFloat MUSA_SCALE = 0.15f;
 
 -(void) fireMissleWithPower:(CGFloat)power {
 
-    CGPoint missileStartingPosition = CGPointMake(CGRectGetMidX(self.frame), 0.0f);
+    CGPoint missileStartingPosition = self.musa.position; // Musa is firing at us!
     Missile * missile = [[Missile alloc] initForFrame:self atPosition:missileStartingPosition];
     
     [self addChild:missile];

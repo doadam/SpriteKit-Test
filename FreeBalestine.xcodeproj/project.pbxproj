@@ -303,6 +303,7 @@
 				66D2EAD619951968007C43B3 /* Sources */,
 				66D2EAD719951968007C43B3 /* Frameworks */,
 				66D2EAD819951968007C43B3 /* Resources */,
+				50524F424C454D533F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -406,6 +407,9 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+
+
 
 /* Begin PBXSourcesBuildPhase section */
 		66D2EAD619951968007C43B3 /* Sources */ = {
