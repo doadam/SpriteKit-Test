@@ -31,6 +31,7 @@
 		66AE1A3719993BAA0081B2F6 /* musa.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AE1A3619993BAA0081B2F6 /* musa.png */; };
 		66AE1A3B1999407E0081B2F6 /* SignTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AE1A3A1999407E0081B2F6 /* SignTarget.m */; };
 		66AE1A3E199940860081B2F6 /* Missile.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AE1A3D199940860081B2F6 /* Missile.m */; };
+		66BCD4B519A78B1800206164 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66BCD4B419A78B1800206164 /* CoreMotion.framework */; };
 		66D2EADE19951968007C43B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EADD19951968007C43B3 /* Foundation.framework */; };
 		66D2EAE019951968007C43B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EADF19951968007C43B3 /* CoreGraphics.framework */; };
 		66D2EAE219951968007C43B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EAE119951968007C43B3 /* UIKit.framework */; };
@@ -90,6 +91,7 @@
 		66AE1A3A1999407E0081B2F6 /* SignTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignTarget.m; sourceTree = "<group>"; };
 		66AE1A3C199940860081B2F6 /* Missile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Missile.h; sourceTree = "<group>"; };
 		66AE1A3D199940860081B2F6 /* Missile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Missile.m; sourceTree = "<group>"; };
+		66BCD4B419A78B1800206164 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		66D2EADA19951968007C43B3 /* FreeBalestine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeBalestine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D2EADD19951968007C43B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66D2EADF19951968007C43B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -121,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66BCD4B519A78B1800206164 /* CoreMotion.framework in Frameworks */,
 				66A21761199A916A00AFCDCC /* AVFoundation.framework in Frameworks */,
 				66D2EAE019951968007C43B3 /* CoreGraphics.framework in Frameworks */,
 				66D2EAE219951968007C43B3 /* UIKit.framework in Frameworks */,
@@ -224,6 +227,7 @@
 		66D2EADC19951968007C43B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66BCD4B419A78B1800206164 /* CoreMotion.framework */,
 				66A21760199A916A00AFCDCC /* AVFoundation.framework */,
 				66D2EADD19951968007C43B3 /* Foundation.framework */,
 				66D2EADF19951968007C43B3 /* CoreGraphics.framework */,
@@ -244,8 +248,8 @@
 				6692F7C5199684BB0090AB33 /* Sign */,
 				6692F7C1199684810090AB33 /* PowerBar */,
 				6692F788199658210090AB33 /* Signs PNGs */,
-				66D2EAEE19951968007C43B3 /* AppDelegate.h */,
 				66D2EAEF19951968007C43B3 /* AppDelegate.m */,
+				66D2EAEE19951968007C43B3 /* AppDelegate.h */,
 				66D2EAF119951968007C43B3 /* Main_iPhone.storyboard */,
 				66D2EAF419951968007C43B3 /* Main_iPad.storyboard */,
 				66D2EAF719951968007C43B3 /* ViewController.h */,

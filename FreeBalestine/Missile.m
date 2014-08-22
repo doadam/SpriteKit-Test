@@ -56,9 +56,10 @@ static const CGFloat TAIL_Y_POINT = -180.0f;
         body.dynamic = YES;
         self.physicsBody = body;
         
-        SKEmitterNode * rocketTail = [self createTailWithTargetNode:parent];
+        // TODO: restore tail when it's not flickring
+        //SKEmitterNode * rocketTail = [self createTailWithTargetNode:parent];
         
-        [self addChild:rocketTail];
+        //[self addChild:rocketTail];
 
     }
     

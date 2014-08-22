@@ -11,6 +11,7 @@
 #import "PowerBar.h"
 #import "Common.h"
 #import "Missile.h"
+#import <CoreMotion/CoreMotion.h>
 
 @import AVFoundation;
 
@@ -67,6 +68,10 @@ static const CGFloat MUSA_SCALE = 0.15f;
 
 @property CFTimeInterval lastRecord;
 
+@property SKSpriteNode * musa;
+
+@property CGFloat xAcceleration;
+
 //TODO: less hacky
 @property CGPoint lastTouchPosition;
 
@@ -93,6 +98,10 @@ static const CGFloat MUSA_SCALE = 0.15f;
 
 // HACK!! REMOVE THIS!! JUST CHECKING FOR ROTATION
 @property Missile * currentMissile;
+
+@property SKEmitterNode * explosionEffect;
+
+@property CMMotionManager * motionMgr;
 
 @end
 
@@ -149,13 +158,28 @@ static const CGFloat MUSA_SCALE = 0.15f;
         self.physicsWorld.gravity = CGVectorMake(0.0f, -9.8f);
         
         // Create a Musa here. Right now I'm not creating a class for this (not needed, yet ;))
-        SKSpriteNode * musaNode = [SKSpriteNode spriteNodeWithImageNamed:@"musa"];
-        [musaNode setScale:MUSA_SCALE];
-        musaNode.position = CGPointMake(CGRectGetMidX(self.frame), musaNode.size.height/2);
-        [self addChild:musaNode];
+        self.musa = [SKSpriteNode spriteNodeWithImageNamed:@"musa"];
+        [self.musa setScale:MUSA_SCALE];
+        self.musa.position = CGPointMake(CGRectGetMidX(self.frame), self.musa.size.height/2);
+        [self addChild:self.musa];
+        
+        // Load the explosion effect to make it less stucking while playing.
+        NSString *firePath = [[NSBundle mainBundle] pathForResource:@"Explosion" ofType:@"sks"];
+        self.explosionEffect = [NSKeyedUnarchiver unarchiveObjectWithFile:firePath];
     
+        // Start playing the background music.
         [self playBackgroundMusic];
         
+        
+        // TODO: make a motion manager class?
+        // TODO: constify
+        self.motionMgr = [[CMMotionManager alloc] init];
+        self.motionMgr.accelerometerUpdateInterval = 0.2f;
+        [self.motionMgr startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+            CMAcceleration acceleration = accelerometerData.acceleration;
+            
+            self.xAcceleration = (acceleration.x * 0.75) + (self.xAcceleration * 0.25);
+        }];
         
         // Initialize counter here
         
@@ -371,6 +395,19 @@ static const CGFloat MUSA_SCALE = 0.15f;
     // Power bar timer.
     [self handlePowerBar:diff];
     
+    // TODO: make a function for it
+    float newXPosition = self.musa.position.x + self.xAcceleration;
+    if(newXPosition < 0) {
+        newXPosition = 0;
+    }
+    else if (newXPosition > CGRectGetMaxX(self.frame)) {
+        newXPosition = CGRectGetMaxX(self.frame);
+    }
+    
+    [self.musa setPosition:CGPointMake(newXPosition,
+                                       self.musa.position.y)];
+    
+    
     // Rotate missile according to movement.
     if (self.currentMissile) {
         [self.currentMissile updateRotation];
@@ -403,9 +440,7 @@ static const CGFloat MUSA_SCALE = 0.15f;
     NSLog(@"Preparing explosion...");
     
     // TODO: this should all be a different class.
-    // TODO: this should be created once and added to the screen for every collision. I think this NSKeyedUnarchiver fucks up everything.
-    NSString *firePath = [[NSBundle mainBundle] pathForResource:@"Explosion" ofType:@"sks"];
-    SKEmitterNode * fire = [NSKeyedUnarchiver unarchiveObjectWithFile:firePath];
+    SKEmitterNode * fire = [self.explosionEffect copy];
     
     [fire setScale:0.2f];
     
