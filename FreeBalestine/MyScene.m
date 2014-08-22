@@ -90,6 +90,8 @@ static const CGFloat MUSA_SCALE = 0.15f;
 // Get sign from a node
 -(SignTarget*) getSignFromNode:(SKNode*)node;
 
+-(void) onMissSign:(SignTarget*)signMissed;
+
 @property (nonatomic) AVAudioPlayer * backgroundMusicPlayer;
 
 -(void) playBackgroundMusic;
@@ -102,6 +104,8 @@ static const CGFloat MUSA_SCALE = 0.15f;
 @property SKEmitterNode * explosionEffect;
 
 @property CMMotionManager * motionMgr;
+
+@property SKLabelNode * muhammadLabel;
 
 @end
 
@@ -127,12 +131,15 @@ static const CGFloat MUSA_SCALE = 0.15f;
         
         SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
         
-        myLabel.text = @"Hello, World!";
-        myLabel.fontSize = 30;
+        myLabel.text = @"Muhammad rasoul Allah";
+        myLabel.fontSize = 20;
         myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
                                        CGRectGetMidY(self.frame));
         
         [self addChild:myLabel];
+        
+        self.muhammadLabel = myLabel;
+        self.muhammadLabel.alpha = 0.3f; //TODO: constify
         
         
         self.isTouching = NO;
@@ -259,7 +266,7 @@ static const CGFloat MUSA_SCALE = 0.15f;
 
 -(CGPoint) generateNewSignPosition {
     
-    CGPoint newPosition = {0};
+    CGPoint newPosition = CGPointMake(0.0f, 0.0f);
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     CGFloat randomXPosiiton = fmod(arc4random(), screenSize.width);
     CGFloat randomYPosiiton = fmod(arc4random(), screenSize.height);
@@ -319,6 +326,20 @@ static const CGFloat MUSA_SCALE = 0.15f;
     self.counters.text = [NSString stringWithFormat:COUNTER_FORMAT, (unsigned int)self.numberOfGreenAttackedSigns, 0];
 }
 
+-(void)onMissSign:(SignTarget*)signMissed {
+    
+    CGFloat alphaModification;
+    if(!signMissed.isRedSign) {
+        alphaModification = MUHAMMAD_LABEL_ALPHA_ON_MISS;
+    }
+    else {
+        // No change if we skipped an arab town.
+        alphaModification = 0.0f;
+    }
+    
+    self.muhammadLabel.alpha += alphaModification;
+}
+
 -(void)cleanupRemovedSigns {
     
     if(!self.signs.count) {
@@ -329,6 +350,7 @@ static const CGFloat MUSA_SCALE = 0.15f;
     
     for(SignTarget * sign in self.signs) {
         if(!sign.isSignOnScreen) {
+            [self onMissSign:sign];
             [sign removeFromParent];
             [signsToRemove addObject:sign];
         }
@@ -439,6 +461,17 @@ static const CGFloat MUSA_SCALE = 0.15f;
     
     NSLog(@"Preparing explosion...");
     
+    CGFloat alphaModification = 0.0f;
+    if(((SignTarget*)signNode).isRedSign) {
+        // When destroying an arab town, the Muhammad label gets weaker.
+        alphaModification = -(MUHAMMAD_LABEL_ALPHA_ON_HIT * 2.0f);
+    }
+    else {
+        alphaModification = MUHAMMAD_LABEL_ALPHA_ON_HIT;
+    }
+    
+    self.muhammadLabel.alpha += alphaModification;
+    
     // TODO: this should all be a different class.
     SKEmitterNode * fire = [self.explosionEffect copy];
     
@@ -448,7 +481,7 @@ static const CGFloat MUSA_SCALE = 0.15f;
     [self addChild:fire];
     
     [missileNode removeFromParent];
-    ((SignTarget*)signNode).isSignOnScreen = NO; // Append for removal.
+    ((SignTarget*)signNode).isSignOnScreen = NO; // Append for removal. actually be done manually.
     
     
     // TODO: update points

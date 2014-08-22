@@ -57,6 +57,7 @@ static const NSTimeInterval TIME_FOR_SIGN_APPEARANCE = 0.3f;
         // Nothing about hitting is done here, because in case of contact, we will remove all the actions immediately.
         [self runAction:[SKAction sequence:@[appearAction, delayBetweenDisappear, disappearAction]] completion:^{
             // When finishing, mark sign for cleanup.
+            // TODO: remove it, we can use the normal API for it.
             self.isSignOnScreen = NO;
         }];
     }
