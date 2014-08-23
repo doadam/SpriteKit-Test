@@ -46,6 +46,7 @@
     
     
     // TODO: perhaps make more functions to do it, maybe constify, who cares.
+    
     CGPoint position = CGPointMake(self.size.width/2, self.size.height/4);
     
     SKAction * waitAction = [SKAction waitForDuration:0.87*15.8f];
@@ -61,7 +62,20 @@
     CGPathAddArc(arcPath, NULL, position.x, position.y, 80.0f, 3.0f, 0.0f, YES);
     SKAction * followPath2 = [SKAction followPath:arcPath asOffset:NO orientToPath:NO duration:0.87f];
     
-    [musa runAction:[SKAction sequence:@[waitAction,[SKAction repeatActionForever:[SKAction sequence:@[followPath1, followPath2]]]]]];
+    SKAction * firstDanceSequence = [SKAction sequence:@[followPath1, followPath2]];
+    
+    SKAction * followPath3 = [followPath1 copy];
+    SKAction * followPath4 = [followPath2 copy];
+    [followPath3 setDuration:0.45f];
+    [followPath4 setDuration:0.45f];
+    
+    [musa runAction:[SKAction sequence:@[waitAction,
+                                         [SKAction repeatAction:firstDanceSequence count:7],
+                                         [SKAction waitForDuration:1.57f],
+                                         [SKAction repeatActionForever:[SKAction sequence:@[followPath3, followPath4]]]
+                                         ]]];
+    
+    
 }
 
 
