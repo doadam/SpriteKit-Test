@@ -58,10 +58,7 @@ static const CGFloat TAIL_Y_POINT = -180.0f;
         
         [self setXScale:0.05f];
         
-        // TODO: fix missile tail, just change some stats and upload the new sks to the phone.
         SKEmitterNode * rocketTail = [self createTailWithTargetNode:parent];
-        
-        rocketTail.position = CGPointMake(0.0f, -90.0f);
         
         [self addChild:rocketTail];
 
