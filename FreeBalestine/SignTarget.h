@@ -31,6 +31,8 @@ static NSString * RED_SIGN_NAMES[] = {
     @"Yokneam"
 };
 
+static CGSize defaultSize;
+
 @interface SignTarget : SKSpriteNode
 
 // A bool property which indicates whether this sign is an arab sign (isRedSign == YES) or an israeli sign (isRedSign == NO).

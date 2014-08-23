@@ -11,6 +11,8 @@
 
 static const NSTimeInterval TIME_FOR_SIGN_TO_LIVE = 3.0f;
 static const NSTimeInterval TIME_FOR_SIGN_APPEARANCE = 0.3f;
+
+
 @implementation SignTarget
 
 +(id) initWithRedColor:(BOOL)red {
@@ -43,6 +45,10 @@ static const NSTimeInterval TIME_FOR_SIGN_APPEARANCE = 0.3f;
         [self setScale:SIGN_SCALE];
         [self setYScale:0];
         
+        if (!CGSizeEqualToSize(defaultSize, [self size])) {
+            defaultSize = [self size];
+        }
+        
         SKPhysicsBody * body = [SKPhysicsBody bodyWithCircleOfRadius:self.size.width/2];
         body.affectedByGravity = NO;
         body.contactTestBitMask |= CATEGORY_MISSILE;
@@ -65,5 +71,6 @@ static const NSTimeInterval TIME_FOR_SIGN_APPEARANCE = 0.3f;
     // A check is not performed here because either way we will return null or a valid object.
     return self;
 }
+
 
 @end

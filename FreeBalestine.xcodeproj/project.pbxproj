@@ -32,6 +32,9 @@
 		66AE1A3B1999407E0081B2F6 /* SignTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AE1A3A1999407E0081B2F6 /* SignTarget.m */; };
 		66AE1A3E199940860081B2F6 /* Missile.m in Sources */ = {isa = PBXBuildFile; fileRef = 66AE1A3D199940860081B2F6 /* Missile.m */; };
 		66BCD4B519A78B1800206164 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66BCD4B419A78B1800206164 /* CoreMotion.framework */; };
+		66BCD4B819A8F84800206164 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BCD4B719A8F84800206164 /* MainMenuScene.m */; };
+		66BCD4BA19A8F97000206164 /* PalestineFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 66BCD4B919A8F97000206164 /* PalestineFlag.png */; };
+		66BCD4BC19A8FEAD00206164 /* startmusic.caf in Resources */ = {isa = PBXBuildFile; fileRef = 66BCD4BB19A8FEAD00206164 /* startmusic.caf */; };
 		66D2EADE19951968007C43B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EADD19951968007C43B3 /* Foundation.framework */; };
 		66D2EAE019951968007C43B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EADF19951968007C43B3 /* CoreGraphics.framework */; };
 		66D2EAE219951968007C43B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D2EAE119951968007C43B3 /* UIKit.framework */; };
@@ -92,6 +95,10 @@
 		66AE1A3C199940860081B2F6 /* Missile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Missile.h; sourceTree = "<group>"; };
 		66AE1A3D199940860081B2F6 /* Missile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Missile.m; sourceTree = "<group>"; };
 		66BCD4B419A78B1800206164 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		66BCD4B619A8F84800206164 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenuScene.h; path = ../MainMenuScene.h; sourceTree = "<group>"; };
+		66BCD4B719A8F84800206164 /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainMenuScene.m; path = ../MainMenuScene.m; sourceTree = "<group>"; };
+		66BCD4B919A8F97000206164 /* PalestineFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PalestineFlag.png; sourceTree = "<group>"; };
+		66BCD4BB19A8FEAD00206164 /* startmusic.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = startmusic.caf; sourceTree = "<group>"; };
 		66D2EADA19951968007C43B3 /* FreeBalestine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeBalestine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D2EADD19951968007C43B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66D2EADF19951968007C43B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -241,6 +248,8 @@
 		66D2EAE519951968007C43B3 /* FreeBalestine */ = {
 			isa = PBXGroup;
 			children = (
+				66BCD4BB19A8FEAD00206164 /* startmusic.caf */,
+				66BCD4B919A8F97000206164 /* PalestineFlag.png */,
 				66A2175E199A902C00AFCDCC /* musabg.caf */,
 				66AE1A381999404C0081B2F6 /* Common.h */,
 				66AE1A3419992F8F0081B2F6 /* Missile */,
@@ -250,6 +259,8 @@
 				6692F788199658210090AB33 /* Signs PNGs */,
 				66D2EAEF19951968007C43B3 /* AppDelegate.m */,
 				66D2EAEE19951968007C43B3 /* AppDelegate.h */,
+				66BCD4B619A8F84800206164 /* MainMenuScene.h */,
+				66BCD4B719A8F84800206164 /* MainMenuScene.m */,
 				66D2EAF119951968007C43B3 /* Main_iPhone.storyboard */,
 				66D2EAF419951968007C43B3 /* Main_iPad.storyboard */,
 				66D2EAF719951968007C43B3 /* ViewController.h */,
@@ -303,7 +314,6 @@
 				66D2EAD619951968007C43B3 /* Sources */,
 				66D2EAD719951968007C43B3 /* Frameworks */,
 				66D2EAD819951968007C43B3 /* Resources */,
-				50524F424C454D533F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -381,12 +391,14 @@
 				66D2EB0019951968007C43B3 /* Images.xcassets in Resources */,
 				6692F7B5199658B90090AB33 /* Be'er-Sheva.png in Resources */,
 				6692F7B3199658B90090AB33 /* Ashdod.png in Resources */,
+				66BCD4BC19A8FEAD00206164 /* startmusic.caf in Resources */,
 				66AE1A2C1997F6D00081B2F6 /* spark.png in Resources */,
 				66D2EAF619951968007C43B3 /* Main_iPad.storyboard in Resources */,
 				6692F7C0199658B90090AB33 /* Yokneam.png in Resources */,
 				66AE1A3019980C450081B2F6 /* spark.png in Resources */,
 				6692F7B6199658B90090AB33 /* Haifa.png in Resources */,
 				6692F7BB199658B90090AB33 /* Rafah.png in Resources */,
+				66BCD4BA19A8F97000206164 /* PalestineFlag.png in Resources */,
 				66AE1A3719993BAA0081B2F6 /* musa.png in Resources */,
 				66A2175F199A902C00AFCDCC /* musabg.caf in Resources */,
 				66D2EAF319951968007C43B3 /* Main_iPhone.storyboard in Resources */,
@@ -408,9 +420,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-
-
-
 /* Begin PBXSourcesBuildPhase section */
 		66D2EAD619951968007C43B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -418,6 +427,7 @@
 			files = (
 				66D2EAFC19951968007C43B3 /* MyScene.m in Sources */,
 				66AE1A3B1999407E0081B2F6 /* SignTarget.m in Sources */,
+				66BCD4B819A8F84800206164 /* MainMenuScene.m in Sources */,
 				6692F7C4199684B00090AB33 /* PowerBar.m in Sources */,
 				66D2EAF919951968007C43B3 /* ViewController.m in Sources */,
 				66AE1A3E199940860081B2F6 /* Missile.m in Sources */,

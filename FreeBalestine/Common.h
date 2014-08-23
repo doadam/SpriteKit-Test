@@ -11,6 +11,8 @@
 
 #define COLLISION_BY_GAME_OBJECTS       (1 << 1)
 
+static const CGFloat MUSA_SCALE = 0.15f;
+
 enum ObjectCategory {
     CATEGORY_SIGN,
     CATEGORY_MISSILE

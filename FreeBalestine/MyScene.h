@@ -16,7 +16,7 @@ static NSString * const COUNTER_FORMAT = @"Kills: %ul. Lives: %ul";
 
 static const CGFloat MUHAMMAD_LABEL_ALPHA_ON_HIT = 0.2f;
 
-static const CGFloat MUHAMMAD_LABEL_ALPHA_ON_MISS = -0.05f;
+static const CGFloat MUHAMMAD_LABEL_ALPHA_ON_MISS = -0.01f;
 
 @interface MyScene : SKScene <SKPhysicsContactDelegate>
 

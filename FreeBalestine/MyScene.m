@@ -20,7 +20,6 @@ static const CGFloat POWER_MODIFIER = 50.0f;
 static const CGFloat BLINK_DURATION = 0.05f;
 static const CGFloat BLINK_TIMES = 4.0f;
 static const CGFloat POWER_BAR_STEPPING = 0.05f;
-static const CGFloat MUSA_SCALE = 0.15f;
 
 @interface MyScene()
 
@@ -268,14 +267,18 @@ static const CGFloat MUSA_SCALE = 0.15f;
     
     CGPoint newPosition = CGPointMake(0.0f, 0.0f);
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-    CGFloat randomXPosiiton = fmod(arc4random(), screenSize.width);
-    CGFloat randomYPosiiton = fmod(arc4random(), screenSize.height);
-    randomYPosiiton += screenSize.height*0.15f;
-    if(randomYPosiiton > screenSize.height) {
-        randomYPosiiton = screenSize.height;
+    CGFloat randomXPosition = fmod(arc4random(), screenSize.width - defaultSize.width);
+    CGFloat randomYPosition = fmod(arc4random(), screenSize.height - defaultSize.height);
+    randomYPosition += screenSize.height*0.15f;
+    if(randomYPosition > screenSize.height) {
+        randomYPosition = screenSize.height;
     }
     
-    newPosition = CGPointMake(randomXPosiiton, randomYPosiiton);
+    // In the opposite case, fix it
+    randomXPosition += defaultSize.width/2;
+    randomYPosition += defaultSize.height/2;
+    
+    newPosition = CGPointMake(randomXPosition, randomYPosition);
     
     return newPosition;
 }
@@ -489,7 +492,6 @@ static const CGFloat MUSA_SCALE = 0.15f;
 }
 
 // Collision detection
-// TODO: find out why there are FPS drops.
 - (void)didBeginContact:(SKPhysicsContact *)contact {
     [self createExplosionAndUpdateScores:contact];
 }
